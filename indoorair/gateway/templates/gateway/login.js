@@ -23,6 +23,4 @@ function onLoginClick() {
   xhttp.open("POST", "/api/login", true);
   xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
   xhttp.send("&username="+username+"&password="+password);
-
-
 }

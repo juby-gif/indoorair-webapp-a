@@ -26,6 +26,6 @@ function onDashboardClick() {
      }
        xhttp.open('POST', "{% url 'dashboard_api' %}", true);
        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-       xhttp.send("&temp_avg=temp+&press_avg=press+&co2_avg=co2+&tvoc_avg=tvoc+&humid_avg=humid");
+       xhttp.send("&temp_avg="+temp+"&press_avg="+press+"&co2_avg="+co2+"&tvoc_avg="+tvoc+"&humid_avg="+humid);
 
 }
