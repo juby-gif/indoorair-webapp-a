@@ -13,7 +13,7 @@ class Instrument(models.Model):
 
 class Sensor(models.Model):
     instrument = models.ForeignKey(
-                 Instrument,
+                 to='Instrument',
                  on_delete=models.CASCADE
                  )
     def _str_(self):
