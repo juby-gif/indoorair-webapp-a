@@ -7,13 +7,13 @@ def dashboard_page(request):
 
 def dashboard_api(request):
 
-  temp_avg = request.POST.get("temp")
-  press_avg = request.POST.get("press")
-  co2_avg = request.POST.get("co2")
-  tvoc_avg = request.POST.get("tvoc")
-  humid_avg = request.POST.get("humid")
+  temp_avg = request.POST.get("temp_avg")
+  press_avg = request.POST.get("press_avg")
+  co2_avg = request.POST.get("co2_avg")
+  tvoc_avg = request.POST.get("tvoc_avg")
+  humid_avg = request.POST.get("humid_avg")
   # This is for debugging purposes only.
-  
+
   return JsonResponse({
        "temp_avg": temp_avg,
        "press_avg":press_avg,

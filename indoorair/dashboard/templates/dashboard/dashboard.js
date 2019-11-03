@@ -12,15 +12,15 @@ function onDashboardClick() {
 
   var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function() {
-     if (this.readyState == 4 && this.status == 200) { // Thisis the callback function
+     if (this.readyState == 4 && this.status == 200) { // This is the callback function
          // Get the string data that the server sent us.
          if (this.readyState == 4 && this.status == 200) {
-           console.log(this.responseText);
-           document.getElementById('temp_avg').innerHTML = this.responseText.temp_avg;
-           document.getElementById('press_avg').innerHTML = this.responseText.press_avg;
-           document.getElementById('co2_avg').innerHTML = this.responseText.co2_avg;
-           document.getElementById('tvoc_avg').innerHTML = this.responseText.tvoc_avg;
-           document.getElementById('humid_avg').innerHTML = this.responseText.humid_avg;
+           data = JSON.parse(this.responseText);
+           document.getElementById('temp_avg').innerHTML =data.temp_avg;
+           document.getElementById('press_avg').innerHTML = data.press_avg;
+           document.getElementById('co2_avg').innerHTML = data.co2_avg;
+           document.getElementById('tvoc_avg').innerHTML = data.tvoc_avg;
+           document.getElementById('humid_avg').innerHTML = data.humid_avg;
          }
        }
      }
