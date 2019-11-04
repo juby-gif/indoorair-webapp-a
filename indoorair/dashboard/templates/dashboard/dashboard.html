@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard  </title>
+<title>Indoor air  </title>
 </head>
 <h1>Welcome to my dashboard! </h1>
 <body>
@@ -10,39 +10,16 @@
   {% include "dashboard/dashboard.js" %}
 
   </script>
-  <h3>Enter the values for the following:</h3>
 
-  TEMPERATURE:
-  <p>
-    <input id = "temp" name = "temp" type = "number"></input>
-  </p>
-  PRESSURE:
-  <p>
-    <input id = "pres" name = "pres" type = "number"></input>
-  </p>
-  CO2:
-  <p>
-    <input id = "co2" name = "co2" type = "number"></input>
-  </p>
-  TVOC:
-  <p>
-    <input id = "tvoc" name = "tvoc" type = "number"></input>
-  </p>
-  HUMIDITY:
-  <p>
-    <input id = "humid" name = "humid" type = "number"></input>
-  </p>
+  <p>Your averages are:</p>
+  <p>Average Temperature: <p id = "temp_avg">---</p>
+  <p>Average Humidity: <p id = "humid_avg">---</p>
+  <p>Average Pressure: <p id = "press_avg">---</p>
+  <p>Average CO2: <p id = "co2_avg">---</p>
+  <p>Average TVOC: <p id = "tvoc_avg">---</p>
 
-  <p>
-    <button type = button onclick = "onDashboardClick();">Get the Average</button>
-  </p>
 
-  The Average is:
-  <p id = "temp_avg" name = "temp_avg" type = "number">TEMPERATURE</p>
-  <p id = "press_avg" name = "press_avg" type = "number">PRESSURE</p>
-  <p id = "co2_avg" name = "co2_avg" type = "number">CO2</p>
-  <p id = "tvoc_avg" name = "tvoc_avg" type = "number">TVOC</p>
-  <p id = "humid_avg" name = "humid_avg" type = "number">HUMIDITY</p>
+
 
 
 </body>

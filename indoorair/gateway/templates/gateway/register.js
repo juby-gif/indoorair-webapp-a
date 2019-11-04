@@ -15,7 +15,7 @@ function onRegisterClick() {
            if (resultObject.was_registered === false) {
                alert(resultObject.reason);
            } else {
-               window.location.href = "/dashboard";
+               window.location.href = "{% url 'registered_page' %}";
            }
        }
    }

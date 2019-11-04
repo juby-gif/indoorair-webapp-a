@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 
-def index(request):
+def index_page(request):
 
     return render(request,"homepage/index.html",{},)
 

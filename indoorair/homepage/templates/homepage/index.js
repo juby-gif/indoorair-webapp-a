@@ -14,7 +14,7 @@ function onVersionClick() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById('version').innerHTML = this.responseText;
+      document.getElementById('version').innerHTML = JSON.parse(this.responseText).version;
     }
   }
   xhttp.open('GET', "{% url 'version_api' %}", true);

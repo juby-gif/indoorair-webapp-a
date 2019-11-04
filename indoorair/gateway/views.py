@@ -64,14 +64,14 @@ def post_register_api(request):
       user.save()
       return JsonResponse({
            "was_registered": True,
-
+           "reason": None,
       })
   except Exception as e:
       return JsonResponse({
            "was_registered": False,
            "reason": str(e)
       })
-      
+
 def post_logout_api(request):
     logout(request)
     return JsonResponse({

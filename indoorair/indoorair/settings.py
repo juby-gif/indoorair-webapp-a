@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'profile_a.apps.ProfileAConfig',
     'instrument.apps.InstrumentConfig',
     'dashboard.apps.DashboardConfig',
+    'foundations.apps.FoundationsConfig',
     'gateway.apps.GatewayConfig',
     'homepage.apps.HomepageConfig',
     'django.contrib.admin',

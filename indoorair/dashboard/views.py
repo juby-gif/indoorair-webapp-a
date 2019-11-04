@@ -5,7 +5,7 @@ from django.http import JsonResponse
 def dashboard_page(request):
   return render(request, "dashboard/dashboard.html",{},)
 
-def dashboard_api(request):
+def get_dashboard_api(request):
 
   temp_avg = request.POST.get("temp_avg")
   press_avg = request.POST.get("press_avg")
@@ -15,10 +15,10 @@ def dashboard_api(request):
   # This is for debugging purposes only.
 
   return JsonResponse({
-       "temp_avg": temp_avg,
-       "press_avg":press_avg,
-       "co2_avg":co2_avg,
-       "tvoc_avg":tvoc_avg,
-       "humid_avg":humid_avg,
+       "avg_temp": 0,
+       "avg_press":0,
+       "avg_co2":0,
+       "avg_tvoc":0,
+       "avg_humid":0,
 
   })
