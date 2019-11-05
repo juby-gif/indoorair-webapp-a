@@ -1,18 +1,22 @@
-function onListClick() {
+function onCreateClick() {
+    window.location.href = "{% url 'i_create_page' %}";
+}
 
-  var xhttp = new XMLHttpRequest();
-   xhttp.onreadystatechange = function() {
-     if (this.readyState == 4 && this.status == 200) { // Thisis the callback function
-         // Get the string data that the server sent us.
-         if (this.readyState == 4 && this.status == 200) {
+function onBackClick() {
+    window.location.href = "{% url 'dashboard_page' %}";
+}
 
-           document.getElementById('temp_avg').innerHTML = this.responseText;
+function onGetVersionClick() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            const dataString = this.responseText;
+            const dataObj = JSON.parse(dataString);
 
-         }
-       }
-     }
-       xhttp.open('POST', "{% url 'list_api' %}", true);
-       xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-       xhttp.send("h=1");
-
+            var element = document.getElementById("getVersionId");
+            element.innerHTML = dataObj.version;
+        }
+    }
+    xhttp.open("GET","api/version", true);
+    xhttp.send();
 }

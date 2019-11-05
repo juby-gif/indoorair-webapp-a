@@ -1,19 +1,22 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
-<h2>Create new data </h2>
+<head>
+<title>IndoorAir | Create Instrument</title>
+</head>
 <body>
-  <script>
+    <script>
+        {% include "instrument/create.js" %}
+    </script>
 
-  {% include "instrument/create.js" %}
+    <h1>Create Instrument</h1>
+    <p>
+    Name:
+    <input id="name" name="name" type="text"></input>
+    </p>
 
-  </script>
-
-
-
-  <p>
-    <button type = button onclick = "onCreateClick();">Create</button>
-  </p>
-
-
+    <p>
+    <button type="button" onclick="onLoginClick()">Submit</button>
+    <button type="button" onclick="onBackClick()">Back</button>
+    </p>
 </body>
 </html>

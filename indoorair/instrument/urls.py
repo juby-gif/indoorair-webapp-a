@@ -1,13 +1,13 @@
 from django.urls import path
 
 from . import views
+
 urlpatterns = [
-    path('create',views.create_page, name = 'create_page'),
-    path('api/create',views.create_api, name = 'create_api'),
-    path('List',views.list_page, name = 'list_page'),
-    path('api/list',views.list_api, name = 'list_api'),
-    path('retrieve',views.retrieve_page, name = 'retrieve_page'),
-    path('api/retrieve',views.retrieve_api, name = 'retrieve_api'),
-    path('update',views.update_page, name = 'update_page'),
-    path('api/update',views.update_api, name = 'update_api'),
-    ]
+    path('instrument/create', views.i_create_page, name='i_create_page'),
+    path('instruments/list', views.i_list_page, name='i_list_page'),
+    # path('instrument/:id/update', views.i_update_page, name='i_update_page'),
+    # path('instrument/:id', views.i_retrieve_page, name='i_retrieve_page'),
+    path('api/instruments', views.get_instruments_api, name='instruments_api'),
+    path('api/instruments/create', views.post_instruments_create_api, name='instrument_create_api'),
+
+]
