@@ -72,9 +72,27 @@ def post_register_api(request):
            "reason": str(e)
       })
 
+def logout_page(request):
+    # STEP 2 - Do something w/ models.
+    # ...
+
+    # STEP 3 - Do something w/ context.
+    # ..
+
+    # STEP 4 - Use the `render` function.
+    return render(request, "gateway/logout.html", {})
+
+
 def post_logout_api(request):
-    logout(request)
-    return JsonResponse({
-         "was_successful": True,
-         "reason": None,
-    })
+    try:
+        logout(request)
+        return JsonResponse({
+             "was_logged_out": True,
+             "reason": None,
+        })
+    except Exception as e:
+        print(e)
+        return JsonResponse({
+             "was_logged_out": False,
+             "reason": str(e),
+        })

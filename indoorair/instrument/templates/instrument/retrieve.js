@@ -1,18 +1,38 @@
-function onRetrieveClick() {
+function generateViewFromObject(dataObj) {
+    if (dataObj.was_found === false) {
+        alert("Sorry we could not find that instrument!");
+        onBackClick();
+    } else {
+        var idInputElement = document.getElementById("id");
+        var nameInputElement = document.getElementById("name");
+        idInputElement.value = dataObj.id;
+        nameInputElement.value = dataObj.name;
+    }
+}
 
-  var xhttp = new XMLHttpRequest();
-   xhttp.onreadystatechange = function() {
-     if (this.readyState == 4 && this.status == 200) { // Thisis the callback function
-         // Get the string data that the server sent us.
-         if (this.readyState == 4 && this.status == 200) {
+function onPageLoadRunGetInstrumentDetailsFromAPI(instrument_id) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            const dataString = this.responseText;
+            const dataObj = JSON.parse(dataString);
+            generateViewFromObject(dataObj);
+        }
+    }
+    const detailURL = "/api/instrument/"+instrument_id.toString();
+    console.log(detailURL);
+    xhttp.open("GET", detailURL, true);
+    xhttp.send();
+}
 
-           document.getElementById('temp_avg').innerHTML = this.responseText;
+const instrument_id = {{ instrument_id }};
+onPageLoadRunGetInstrumentDetailsFromAPI(instrument_id);
 
-         }
-       }
-     }
-       xhttp.open('POST', "{% url 'retrieve_api' %}", true);
-       xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-       xhttp.send("h=1");
 
+function onBackClick() {
+    window.location.href = "{% url 'i_list_page' %}";
+}
+
+function onUpdateClick() {
+    window.location.href = "{% url 'i_update_page' instrument_id %}";
 }
